@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: javaspringcurso-api
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://192.168.0.220:3306/dbjavaspring?useTimeZone=true&serverTimeZone=GMT-3
+    username: javaspringuser
+    password: J@spring#24
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    open-in-view: false
