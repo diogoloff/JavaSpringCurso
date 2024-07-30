@@ -8,6 +8,9 @@ spring:
     password: J@spring#24
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: none
+      naming:
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyJpaCompliantImpl
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
     show-sql: false
     open-in-view: false
