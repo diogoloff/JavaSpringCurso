@@ -11,6 +11,7 @@ import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
 import br.com.javaspringcurso.exceptions.ExceptionResponse;
+import br.com.javaspringcurso.exceptions.RequiredObjectsNullException;
 import br.com.javaspringcurso.exceptions.ResourceNotFoundException;
 import br.com.javaspringcurso.exceptions.UnsupportedMathOperationException;
 
@@ -26,7 +27,7 @@ public class CustomizedResponseEntityExceptionHandler extends ResponseEntityExce
     }
 
     @ExceptionHandler(UnsupportedMathOperationException.class)
-    public final ResponseEntity<ExceptionResponse> handleBadRequestExceptions (Exception ex, WebRequest request) {
+    public final ResponseEntity<ExceptionResponse> handleBadRequestExceptionsMath (Exception ex, WebRequest request) {
         ExceptionResponse exceptionResponse = new ExceptionResponse(new Date(), ex.getMessage(), request.getDescription(false));
 
         return new ResponseEntity<>(exceptionResponse, HttpStatus.BAD_REQUEST);
@@ -37,6 +38,13 @@ public class CustomizedResponseEntityExceptionHandler extends ResponseEntityExce
         ExceptionResponse exceptionResponse = new ExceptionResponse(new Date(), ex.getMessage(), request.getDescription(false));
 
         return new ResponseEntity<>(exceptionResponse, HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler(RequiredObjectsNullException.class)
+    public final ResponseEntity<ExceptionResponse> handleBadRequestExceptions (Exception ex, WebRequest request) {
+        ExceptionResponse exceptionResponse = new ExceptionResponse(new Date(), ex.getMessage(), request.getDescription(false));
+
+        return new ResponseEntity<>(exceptionResponse, HttpStatus.BAD_REQUEST);
     }
 
 }

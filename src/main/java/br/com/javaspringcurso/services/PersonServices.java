@@ -8,6 +8,7 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 import org.springframework.stereotype.Service;
 
+import br.com.javaspringcurso.exceptions.RequiredObjectsNullException;
 import br.com.javaspringcurso.exceptions.ResourceNotFoundException;
 import br.com.javaspringcurso.mapper.DozerMapper;
 import br.com.javaspringcurso.mapper.custom.PersonMapper;
@@ -54,6 +55,11 @@ public class PersonServices {
     }
 
     public PersonVO create(PersonVO person) {
+
+
+        // aqui é spo simulação para os testes unitarios
+        if (person == null) throw new RequiredObjectsNullException();
+
         logger.info("Creating one person");
 
         Person entity = DozerMapper.parseObject(person, Person.class);
@@ -72,6 +78,9 @@ public class PersonServices {
     }
 
     public PersonVO update(PersonVO person) {
+
+        if (person == null) throw new RequiredObjectsNullException();
+        
         logger.info("Update one person");
 
         Person entity = repository.findById(person.getKey()).orElseThrow(() -> new ResourceNotFoundException("No records found for this ID"));
