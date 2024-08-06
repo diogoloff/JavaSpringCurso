@@ -2,11 +2,22 @@ package br.com.javaspringcurso.data.vo.v1;
 
 import java.io.Serializable;
 
-public class PersonVO implements Serializable {
+import org.springframework.hateoas.RepresentationModel;
+import org.springframework.lang.Nullable;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.github.dozermapper.core.Mapping;
+
+@JsonPropertyOrder( { "id", "firstName", "lastName", "address", "gender" } )
+public class PersonVO extends RepresentationModel<PersonVO> implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private Long id;
+    @Mapping("id") // Esta questão de dizer os campos compativeis é somente no Dozer, se usar Model Mapper não existe precisa ser tratado na mão
+    @JsonProperty("id")
+
+    private Long key; // Se usar o RepresentationModel usar variavel Id gera problema de conflito
     private String firstName;
     private String lastName;
     private String address;
@@ -16,12 +27,12 @@ public class PersonVO implements Serializable {
 
     }
 
-    public Long getId() {
-        return id;
+    public Long getKey() {
+        return key;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setKey(Long key) {
+        this.key = key;
     }
 
     public String getFirstName() {
@@ -60,7 +71,7 @@ public class PersonVO implements Serializable {
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result + ((id == null) ? 0 : id.hashCode());
+        result = prime * result + ((key == null) ? 0 : key.hashCode());
         result = prime * result + ((firstName == null) ? 0 : firstName.hashCode());
         result = prime * result + ((lastName == null) ? 0 : lastName.hashCode());
         result = prime * result + ((address == null) ? 0 : address.hashCode());
@@ -69,7 +80,7 @@ public class PersonVO implements Serializable {
     }
 
     @Override
-    public boolean equals(Object obj) {
+    public boolean equals(@Nullable Object obj) {
         if (this == obj)
             return true;
         if (obj == null)
@@ -77,10 +88,10 @@ public class PersonVO implements Serializable {
         if (getClass() != obj.getClass())
             return false;
         PersonVO other = (PersonVO) obj;
-        if (id == null) {
-            if (other.id != null)
+        if (key == null) {
+            if (other.key != null)
                 return false;
-        } else if (!id.equals(other.id))
+        } else if (!key.equals(other.key))
             return false;
         if (firstName == null) {
             if (other.firstName != null)
