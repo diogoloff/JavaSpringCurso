@@ -1,5 +1,21 @@
-INSERT INTO `person` (`id`, `address`, `firstName`, `gender`, `lastName`) VALUES
-	(1, 'Criciúma', 'Diogo', 'Male', 'Loff'),
-	(2, 'Criciúma', 'Daiane', 'Female', 'Matos'),
-	(3, 'Criciúma', 'João', 'Male', 'Loff'),
-	(4, 'Criciúma', 'Nina', 'Female', 'Loff');
+INSERT INTO person (id, firstName, lastName, address, gender) VALUES
+(1, 'Alexandre', 'o Grande', 'Macedônia', 'Male'),
+(2, 'Júlio', 'César', 'Roma', 'Male'),
+(3, 'Napoleão', 'Bonaparte', 'França', 'Male'),
+(4, 'Catarina', 'a Grande', 'Rússia', 'Female'),
+(5, 'Genghis', 'Khan', 'Mongólia', 'Male'),
+(6, 'Joana', 'd\'Arc', 'França', 'Female'),
+(7, 'Leonardo', 'da Vinci', 'Itália', 'Male'),
+(8, 'Isabel', 'I de Castela', 'Espanha', 'Female'),
+(9, 'Salah', 'ad-Din', 'Egito', 'Male'),
+(10, 'Boudica', '', 'Britânia', 'Female'),
+(11, 'Átila', 'o Huno', 'Europa', 'Male'),
+(12, 'Alexandre', 'Nevsky', 'Rússia', 'Male'),
+(13, 'Hannibal', 'Barca', 'Cartago', 'Male'),
+(14, 'Joaquim', 'Murtinho', 'Brasil', 'Male'),
+(15, 'Berenice', 'II', 'Egito', 'Female'),
+(16, 'Tariq', 'ibn Ziyad', 'Espanha', 'Male'),
+(17, 'Bajirao', 'I', 'Índia', 'Male'),
+(18, 'Zenóbia', '', 'Palmira', 'Female'),
+(19, 'Harald', 'Hardrada', 'Noruega', 'Male'),
+(20, 'Boadicea', '', 'Britânia', 'Female');

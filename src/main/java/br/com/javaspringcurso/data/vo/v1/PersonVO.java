@@ -16,8 +16,8 @@ public class PersonVO extends RepresentationModel<PersonVO> implements Serializa
 
     @Mapping("id") // Esta questão de dizer os campos compativeis é somente no Dozer, se usar Model Mapper não existe precisa ser tratado na mão
     @JsonProperty("id")
-
     private Long key; // Se usar o RepresentationModel usar variavel Id gera problema de conflito
+
     private String firstName;
     private String lastName;
     private String address;
@@ -115,7 +115,4 @@ public class PersonVO extends RepresentationModel<PersonVO> implements Serializa
             return false;
         return true;
     }
-
-    
-
 }
